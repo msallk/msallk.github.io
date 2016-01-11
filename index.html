@@ -1,235 +1,38 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  <title>没有名字不是借口</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="没有名字不是借口">
-<meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="没有名字不是借口">
-<meta property="og:description">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="没有名字不是借口">
-<meta name="twitter:description">
-  
-    <link rel="alternative" href="/atom.xml" title="没有名字不是借口" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
-  
+extends base
+- var current_title = page.title || tag.name || category.name || site.title
 
-</head>
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">没有名字不是借口</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-我关注的科技名词2016" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/01/10/我关注的科技名词2016/" class="article-date">
-  <time datetime="2016-01-11T05:11:18.000Z" itemprop="datePublished">2016-01-10</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/10/我关注的科技名词2016/">我关注的科技名词2016</a>
-    </h1>
-  
+block title
+  title= config.title + " | " + config.subtitle
+block content
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>从2001年左右开始着迷消费电子产品。作为一个爱好者来说十几年说长不长，说短也不短，但相对于我的年龄来说真的已经算持续很久很久的爱好了。着迷的重点从PC到便携数码设备，再到摄影器材，再到近几年的汽车。在我成长的种见证了科技行业的飞速发展，到如今很多儿时对科技的美好幻想都已经变成了现实。我也已经长大并且在科技行业工作。我不再像儿时那样可以随口说intel每一代cpu的制程频率核心代号，但我仍对消费电子产品抱有极大的好奇心，我会更有选择性的关注那些在消费级产品上大幅提升用户体验的技术和产品。</p>
-<p>以下是当下（2016年初）我所关注的几个科技名词：</p>
-<ul>
-<li><p><strong>Adaptive Cruise Control(ACC) 自适应巡航</strong><br>这是一个汽车行业技术名词，在此代指各种基于雷达或摄像头的驾驶辅助科技。</p>
-</li>
-<li><p><strong>Android Auto 安卓车载系统</strong><br>这是一个通过车载主机完成交互的智能手机投射标准，在此代指支持Android Auto技术的车载主机。</p>
-</li>
-<li><p><strong>Fanless 无风扇设计</strong><br>这是个PC行业的名词，在此用来代表完全没有主动散热装置的个人计算机。</p>
-</li>
-<li><p><strong>OLED 有机发光二极体</strong><br>这是一个光电行业的名词，在此代指使用OLED技术的自发光显示器。</p>
-</li>
-<li><p><strong>HDMI 2.0 高清晰度多媒体接口2.0</strong><br>这是一种数字化视频和声音传输接口，在此代指使用HDMI2.0技术的显示器，</p>
-</li>
-<li><p><strong>Metformin(二甲双胍)</strong><br>这是一种用于治疗II型糖尿病的常见药物。也是FDA唯一进入临床试验阶段的抗衰老药物。</p>
-</li>
-</ul>
-<p>今天到此为止，终于算是完成了好友宋哲指派的任务。以后更新再慢慢单独聊聊上面的名词，我关注的原因和我对不同产品的看法，或者会更新一些其它与科技相关或者不相关的东西。</p>
-<p>吴江 于 美国加州山景城<br>2016.1.10</p>
+  for post in page.posts.toArray()
+    .post
+      h2.post-title
+        include _partial/helpers
+        a(href=url_for(post.path))
+          +title(post)
+      .post-meta= post.date.format(config.date_format)
+      if theme.duoshuo
+        span.ds-thread-count(data-thread-key=post.path)
+      if theme.disqus
+        span.disqus-comment-count(data-disqus-identifier=post.path)
+      if post.description
+        .post-content
+          != post.description
+      else if post.excerpt
+        .post-content
+          != post.excerpt
+      else if post.content
+        - var br = post.content.indexOf('\n')
+        if br < 0
+          .post-content
+            != post.content
+        else
+          .post-content
+            != post.content.substring(0, br)
+      p(class="readmore")
+        a(href=url_for(post.path))= __('Readmore')
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/01/10/我关注的科技名词2016/" data-id="cij9jeibh0001am03m6wha29x" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/12/31/hello-world/" class="article-date">
-  <time datetime="2015-12-31T10:33:34.000Z" itemprop="datePublished">2015-12-31</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/31/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start"><a href="#Quick_Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create_a_new_post"><a href="#Create_a_new_post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server"><a href="#Run_server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files"><a href="#Generate_static_files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites"><a href="#Deploy_to_remote_sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/12/31/hello-world/" data-id="cij9jeiaw0000am03caisixop" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-  
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  
-    
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li></ul>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recents</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2016/01/10/我关注的科技名词2016/">我关注的科技名词2016</a>
-          </li>
-        
-          <li>
-            <a href="/2015/12/31/hello-world/">Hello World</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2016 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
-  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
-
-
-<script src="/js/script.js" type="text/javascript"></script>
-
-  </div>
-</body>
-</html>
+  include _partial/paginator
+  if theme.disqus
+    script(id='dsq-count-scr' src='//#{theme.disqus}.disqus.com/count.js' async)
